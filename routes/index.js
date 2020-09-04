@@ -53,14 +53,13 @@ module.exports = function(app) {
     pool.getConnection(function(err, connection) {
       if (err) throw err; // not connected!
 
-      pool.query('UPDATE totals SET fundraisers = 100', function (err, rows, fields) {
+      pool.query('UPDATE totals SET fundraisers = 100, fundraising_pages = 200', function (err, rows, fields) {
         if (err) return;
 
         res.json(rows);
 
         connection.release();
       })
-
     })
   });
 };

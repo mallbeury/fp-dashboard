@@ -6,7 +6,7 @@ import './App.css';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {users: 10};
+        this.state = {fundraisers: 0, fundraising_pages: 0};
 
         this.fetchData();
     }
@@ -18,7 +18,8 @@ class App extends Component {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                this.setState({users: 50});
+                this.setState({fundraisers: data[0].fundraisers});
+                this.setState({fundraising_pages: data[0].fundraising_pages});
             });
 
     }
@@ -30,12 +31,12 @@ class App extends Component {
         <Row gutter={16}>
           <Col span={12}>
               <Card>
-                  <Statistic title="Fundraisers" value={this.state.users} />
+                  <Statistic title="Fundraisers" value={this.state.fundraisers} />
               </Card>
           </Col>
           <Col span={12}>
               <Card>
-                  <Statistic title="Fundraising Pages" value={99} />
+                  <Statistic title="Fundraising Pages" value={this.state.fundraising_pages} />
               </Card>
           </Col>
           <Col span={12}>
@@ -45,7 +46,7 @@ class App extends Component {
           </Col>
       </Row>
 
-      <Button type="primary" style={{ marginLeft: 8 }} onClick={e => this.setState({ users: 99 })}>Test Update</Button>
+      <Button type="primary" style={{ marginLeft: 8 }} onClick={e => this.setState({ fundraisers: 10 })}>Test Update</Button>
 
       </div>
     );
