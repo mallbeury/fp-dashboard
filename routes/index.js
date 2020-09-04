@@ -24,6 +24,7 @@ var pool  = mysql.createPool(connectionParams);
 var app = express();
 
 var jsonParser = bodyParser.json()
+var postParser = bodyParser.urlencoded({ extended: true });
 
 module.exports = function(app) {
   app.get('/', function(req, res) {
@@ -49,9 +50,16 @@ module.exports = function(app) {
 
     })
   });
-  app.get('/fp-webhook', function(req, res) {
+  app.post('/fp-webhook', postParser, function(req, res) {
+    console.log(req.body);
+    console.log(req.body.event_name);
+
     pool.getConnection(function(err, connection) {
       if (err) throw err; // not connected!
+
+      pool.query('INSERT INTO event (name) VALUES (' + pool.escape(req.body.event_name) + ')', function (err, rows, fields) {
+
+      })
 
       pool.query('UPDATE totals SET fundraisers = 100, fundraising_pages = 200', function (err, rows, fields) {
         if (err) return;
@@ -61,5 +69,7 @@ module.exports = function(app) {
         connection.release();
       })
     })
+
+
   });
 };
