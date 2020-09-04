@@ -1,0 +1,27 @@
+{
+  "name": "nodejs",
+  "version": "0.0.0",
+  "engines": {
+    "node": "8.9.1"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.689.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "curl-request": "^1.1.1",
+    "dotenv": "^6.2.0",
+    "express": "^4.17.1",
+    "mailchimp-api-v3": "^1.14.0",
+    "moment": "^2.25.3",
+    "moment-timezone": "^0.5.28",
+    "mysql": "^2.18.1",
+    "uuid": "^8.1.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-import": "^2.18.2"
+  }
+}
