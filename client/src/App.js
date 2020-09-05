@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
 import { Card, Row, Col, Statistic, Button } from "antd";
+import Example from "./Example"
 import "antd/dist/antd.css";
 import './App.css';
 
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {fundraisers: 0, fundraising_pages: 0};
+        this.state = {fundraisers: 0, fundraising_pages: 0, animating: false};
+
+        this.handleClick = this.handleClick.bind(this);
 
         this.fetchData();
+    }
+
+    handleClick() {
+        this.setState({ fundraisers: 10 });
+        this.setState({ animating: true });
+
+        setTimeout(() => {
+            this.setState({animating: false});
+        }, 4000)
+
     }
 
     fetchData() {
@@ -46,8 +59,9 @@ class App extends Component {
           </Col>
       </Row>
 
-      <Button type="primary" style={{ marginLeft: 8 }} onClick={e => this.setState({ fundraisers: 10 })}>Test Update</Button>
+        <Example animating={this.state.animating} />
 
+            <Button type="primary" style={{ marginLeft: 8 }} onClick={this.handleClick}>Test Update</Button>
       </div>
     );
   }

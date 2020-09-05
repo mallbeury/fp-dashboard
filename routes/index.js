@@ -51,8 +51,8 @@ module.exports = function(app) {
     })
   });
   app.post('/fp-webhook', postParser, function(req, res) {
-    console.log(req.body);
-    console.log(req.body.event_name);
+//    console.log(req.body);
+
 
     pool.getConnection(function(err, connection) {
       if (err) throw err; // not connected!

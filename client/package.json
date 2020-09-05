@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "antd": "^4.6.2",
+    "framer": "^1.2.5",
+    "framer-motion": "^2.6.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "0.9.5"
