@@ -1,18 +1,17 @@
 import React from 'react';
 import Like from "./Like";
 import {Frame} from "framer";
-import logo from './background.svg';
+import rocket from './rocket.svg';
 
 export default function Example(props) {
     return (
         <div>
-
             <Frame
                 center
                 background={{}}
                 initial={{ x: 0, y: 0, width: 220, height: 220, rotate: 0, scale: 1, opacity: 1 }}
             >
-                <img src={logo} alt="logo" />
+                <img src={rocket} alt="Rocket" />
 
                 <Like animating={props.animating} index={0} />
                 <Like animating={props.animating} index={1} />
@@ -20,8 +19,6 @@ export default function Example(props) {
                 <Like animating={props.animating} index={3} />
                 <Like animating={props.animating} index={4} />
             </Frame>
-
         </div>
     )
-
 }

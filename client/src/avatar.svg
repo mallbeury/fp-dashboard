@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="104px" height="35px" viewBox="0 0 104 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>Oval 62 + Oval 63 + Oval 63 Copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="52" cy="52" r="52"></circle>
+    </defs>
+    <g id="New" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="single-person">
+            <g id="Oval-62-+-Oval-63-+-Oval-63-Copy-2">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#F1F1F1" xlink:href="#path-1"></use>
+                <g id="Oval-63-Copy-+-Oval-63-Copy" mask="url(#mask-2)">
+                    <g transform="translate(19.000000, 32.000000)">
+                        <circle id="Oval-63-Copy" fill="#F03E1B" fill-rule="evenodd" cx="33.4859813" cy="69.2803738" r="31.1028037"></circle>
+                        <path d="M33.4859813,102.383178 C15.2038076,102.383178 0.38317757,87.5625475 0.38317757,69.2803738 C0.38317757,50.9982002 15.2038076,36.1775701 33.4859813,36.1775701 C51.768155,36.1775701 66.588785,50.9982002 66.588785,69.2803738 C66.588785,87.5625475 51.768155,102.383178 33.4859813,102.383178 Z M33.4859813,98.3831776 C49.559016,98.3831776 62.588785,85.3534085 62.588785,69.2803738 C62.588785,53.2073392 49.559016,40.1775701 33.4859813,40.1775701 C17.4129466,40.1775701 4.38317757,53.2073392 4.38317757,69.2803738 C4.38317757,85.3534085 17.4129466,98.3831776 33.4859813,98.3831776 Z" id="Oval-63-Copy" fill="#F1F1F1" fill-rule="nonzero"></path>
+                        <path d="M33.4859813,35.2616822 C43.1483837,35.2616822 50.9813084,27.4287575 50.9813084,17.7663551 C50.9813084,8.10395279 43.1483837,0.271028037 33.4859813,0.271028037 C23.823579,0.271028037 15.9906542,8.10395279 15.9906542,17.7663551 C15.9906542,27.4287575 23.823579,35.2616822 33.4859813,35.2616822 Z" id="Oval-63" fill="#CE9C77" fill-rule="evenodd"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

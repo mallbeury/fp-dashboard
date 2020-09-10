@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Row, Col, Statistic, Button } from "antd";
+import { Button } from "antd";
 import Example from "./Example"
 import "antd/dist/antd.css";
 import './App.css';
@@ -15,13 +15,14 @@ class App extends Component {
     }
 
     handleClick() {
-        this.setState({ fundraisers: 10 });
-        this.setState({ animating: true });
+        if (!this.state.animating) {
+            this.setState({ fundraisers: 10 });
+            this.setState({ animating: true });
 
-        setTimeout(() => {
-            this.setState({animating: false});
-        }, 4000)
-
+            setTimeout(() => {
+                this.setState({animating: false});
+            }, 4000)
+        }
     }
 
     fetchData() {
@@ -39,30 +40,11 @@ class App extends Component {
 
   render() {
     return (
-        <div className="site-statistic-demo-card">
-
-        <Row gutter={16}>
-          <Col span={12}>
-              <Card>
-                  <Statistic title="Fundraisers" value={this.state.fundraisers} />
-              </Card>
-          </Col>
-          <Col span={12}>
-              <Card>
-                  <Statistic title="Fundraising Pages" value={this.state.fundraising_pages} />
-              </Card>
-          </Col>
-          <Col span={12}>
-              <Card>
-                  <Statistic title="Total Donations" value={500.43} precision={2} prefix={'$'} />
-              </Card>
-          </Col>
-      </Row>
-
+        <div>
         <Example animating={this.state.animating} />
 
-            <Button type="primary" style={{ marginLeft: 8 }} onClick={this.handleClick}>Test Update</Button>
-      </div>
+        <Button type="primary" style={{ marginLeft: 8 }} onClick={this.handleClick}>Test Update</Button>
+        </div>
     );
   }
 }
