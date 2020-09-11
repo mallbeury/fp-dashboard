@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Button } from "antd";
 import Example from "./Example"
 import "antd/dist/antd.css";
-import './App.css';
 
 class App extends Component {
     constructor(props) {
@@ -40,10 +38,8 @@ class App extends Component {
 
   render() {
     return (
-        <div>
+        <div onClick={this.handleClick}>
         <Example animating={this.state.animating} />
-
-        <Button type="primary" style={{ marginLeft: 8 }} onClick={this.handleClick}>Test Update</Button>
         </div>
     );
   }

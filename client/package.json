@@ -8,6 +8,7 @@
     "framer-motion": "^2.6.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-jss": "^10.4.0",
     "react-scripts": "2.0.3"
   },
   "devDependencies": {},

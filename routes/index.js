@@ -36,40 +36,37 @@ module.exports = function(app) {
   // **************************************************************************
   // EVENTS
   // **************************************************************************
-  app.get('/fp-totals', function(req, res) {
+  app.get('/fp-events', function(req, res) {
+    let eventTime = req.query.eventTime;
+
     pool.getConnection(function(err, connection) {
       if (err) throw err; // not connected!
 
-      pool.query('SELECT * from totals', function (err, rows, fields) {
+      pool.query('SELECT * from event where created > ' + pool.escape(eventTime), function (err, rows, fields) {
         if (err) return;
 
         res.json(rows);
 
         connection.release();
       })
-
     })
   });
   app.post('/fp-webhook', postParser, function(req, res) {
-//    console.log(req.body);
-
-
     pool.getConnection(function(err, connection) {
       if (err) throw err; // not connected!
 
-      pool.query('INSERT INTO event (name) VALUES (' + pool.escape(req.body.event_name) + ')', function (err, rows, fields) {
+      // use UTC date
+      let timeNowUTC = moment().utc();
+      let timeNowUTCFormatted = timeNowUTC.format('YYYY-MM-DD HH:mm:ss');
 
-      })
-
-      pool.query('UPDATE totals SET fundraisers = 100, fundraising_pages = 200', function (err, rows, fields) {
+      pool.query('INSERT INTO event (created, name) VALUES (' + pool.escape(timeNowUTCFormatted) + ', ' + pool.escape(req.body.event_name) + ')', function (err, rows, fields) {
         if (err) return;
 
-        res.json(rows);
+        res.json([]);
 
         connection.release();
       })
     })
-
 
   });
 };

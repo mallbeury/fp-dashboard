@@ -1,7 +1,7 @@
 import React from 'react';
 import {Frame, useAnimation} from "framer";
 import LikeHeart from "./LikeHeart";
-import LikeAvatar from "./LikeAvatar";
+//import LikeAvatar from "./LikeAvatar";
 
 export default function Like(props) {
     // Create a function to get a random integer
@@ -67,9 +67,6 @@ export default function Like(props) {
         })
     }
 
-    let color = "#B81064";
-//            <LikeHeart />
-
     return (
         <Frame
             center
@@ -77,7 +74,7 @@ export default function Like(props) {
             initial={{ x: 0, y: 0, width: 85, height: 74.575, rotate: 0, scale: 0, opacity: 1 }}
             animate={controls}
         >
-            <LikeAvatar />
+            <LikeHeart />
         </Frame>
     )
 }
