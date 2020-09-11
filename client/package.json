@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "antd": "^4.6.2",
-    "framer": "^1.2.5",
-    "framer-motion": "^2.6.6",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "antd": "4.6.2",
+    "framer": "1.2.5",
+    "framer-motion": "2.6.6",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
     "react-jss": "^10.4.0",
     "react-scripts": "2.0.3"
   },
