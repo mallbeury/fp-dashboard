@@ -1,8 +1,8 @@
 import React from 'react';
-import { ReactComponent as AvatarIcon } from './gift.svg';
+import { ReactComponent as PageIcon } from './page.svg';
 
 export default function LikeAvatar(props) {
     return (
-        <AvatarIcon />
+        <PageIcon />
     )
 }
