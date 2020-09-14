@@ -6,7 +6,7 @@ import "antd/dist/antd.css";
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {fundraisers: 0, fundraising_pages: 0, animating: false};
+        this.state = {type: '', animating: false};
 
         this.handleClick = this.handleClick.bind(this);
 
@@ -16,10 +16,9 @@ class App extends Component {
         this.fetchData();
     }
 
-    playAnimation() {
+    playAnimation(strType) {
         if (!this.state.animating) {
-            this.setState({ fundraisers: 10 });
-            this.setState({ animating: true });
+            this.setState({ type: strType, animating: true });
 
             setTimeout(() => {
                 this.setState({animating: false});
@@ -33,10 +32,22 @@ class App extends Component {
             let event = this.eventsToProcess[0];
             console.log('EVENT');
             console.log(event);
+
+            switch (event.name) {
+                case 'P2P_NEW_DONATION':
+                    this.playAnimation('like');
+                    break;
+
+                case 'P2P_CAMPAIGN_PUBLISHED':
+                    this.playAnimation('page');
+                    break;
+
+                default:
+                    break;
+            }
+
             // remove 1st event
             this.eventsToProcess.shift();
-            // play
-            this.playAnimation();
         }
     }
 
@@ -80,7 +91,7 @@ class App extends Component {
   render() {
     return (
         <div onClick={this.handleClick}>
-        <Example animating={this.state.animating} />
+        <Example type={this.state.type} animating={this.state.animating} />
         </div>
     );
   }

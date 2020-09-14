@@ -1,7 +1,7 @@
 import React from 'react';
 import {Frame, useAnimation} from "framer";
 import LikeHeart from "./LikeHeart";
-//import LikeAvatar from "./LikeAvatar";
+import LikePage from "./LikePage";
 
 export default function Like(props) {
     // Create a function to get a random integer
@@ -27,34 +27,65 @@ export default function Like(props) {
             transition: { duration: 0 },
         })
 
-        controls.start({
-            scale: 1,
-            transition: {
-                ease: "easeInOut",
-                duration: 0.2,
-                delay: 0.4 * props.index,
-            },
-        })
-        // Float the heart to the top
-        controls.start({
-            y: -140,
-            opacity: 0,
-            transition: {
-                ease: "easeOut",
-                duration: 2.6,
-                delay: 0.4 * props.index,
-            },
-        })
-        // Rotate and make the heart float left and right as it goes up
-        controls.start({
-            rotate: [rotate, -rotate, rotate, -rotate, rotate],
-            x: [travelX, -travelX, travelX, -travelX, travelX],
-            transition: {
-                ease: "easeOut",
-                duration: 3,
-                delay: 0.4 * props.index,
-            },
-        })
+        if (props.type === 'page') {
+            controls.start({
+                scale: 2,
+                transition: {
+                    ease: "easeInOut",
+                    duration: 0.2,
+                    delay: 0.4 * props.index,
+                },
+            })
+            // Float the heart to the top
+            controls.start({
+                y: -540,
+                transition: {
+                    ease: "easeOut",
+                    duration: 3.6,
+                    delay: 0.4 * props.index,
+                },
+            })
+            // Rotate and make the heart float left and right as it goes up
+            controls.start({
+                rotate: [rotate, -rotate, rotate, -rotate, rotate],
+                x: [travelX, -travelX, travelX, -travelX, travelX],
+                transition: {
+                    ease: "easeOut",
+                    duration: 3,
+                    delay: 0.4 * props.index,
+                },
+            })
+        }
+        else {
+            controls.start({
+                scale: 1,
+                transition: {
+                    ease: "easeInOut",
+                    duration: 0.2,
+                    delay: 0.4 * props.index,
+                },
+            })
+            // Float the heart to the top
+            controls.start({
+                y: -140,
+                opacity: 0,
+                transition: {
+                    ease: "easeOut",
+                    duration: 2.6,
+                    delay: 0.4 * props.index,
+                },
+            })
+            // Rotate and make the heart float left and right as it goes up
+            controls.start({
+                rotate: [rotate, -rotate, rotate, -rotate, rotate],
+                x: [travelX, -travelX, travelX, -travelX, travelX],
+                transition: {
+                    ease: "easeOut",
+                    duration: 3,
+                    delay: 0.4 * props.index,
+                },
+            })
+        }
     }
     else {
         controls.start({
@@ -67,14 +98,28 @@ export default function Like(props) {
         })
     }
 
-    return (
-        <Frame
-            center
-            background={{}}
-            initial={{ x: 0, y: 0, width: 85, height: 74.575, rotate: 0, scale: 0, opacity: 1 }}
-            animate={controls}
-        >
-            <LikeHeart />
-        </Frame>
-    )
+    if (props.type === 'page') {
+        return (
+            <Frame
+                center
+                background={{}}
+                initial={{ x: 0, y: 0, width: 85, height: 74.575, rotate: 0, scale: 0, opacity: 1 }}
+                animate={controls}
+            >
+                <LikePage />
+            </Frame>
+        )
+    }
+    else {
+        return (
+            <Frame
+                center
+                background={{}}
+                initial={{ x: 0, y: 0, width: 85, height: 74.575, rotate: 0, scale: 0, opacity: 1 }}
+                animate={controls}
+            >
+                <LikeHeart />
+            </Frame>
+        )
+    }
 }
